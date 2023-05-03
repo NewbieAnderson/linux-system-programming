@@ -1,4 +1,4 @@
-all: file/open
+all: file/fd
 
-file/open:
-	gcc -o ./bin/open ./file/open.c
+file/fd:
+	gcc -o ./bin/fd ./file/fd.c
