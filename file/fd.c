@@ -1,16 +1,13 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
 #include <unistd.h>
 
 int main(void)
 {
-    const int flag = O_CREAT | O_RDONLY;
     const mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
-    const int rfd = open("./fd_test.txt", flag, mode);
-    const int wfd = open("./fd_test.txt", flag, mode);
+    const int rfd = open("./fd_test.txt", O_CREAT | O_RDONLY, mode);
+    const int wfd = open("./fd_test.txt", O_CREAT | O_WRONLY, mode);
     if (rfd == -1) {
         perror("failed to open rfd ");
         exit(1);

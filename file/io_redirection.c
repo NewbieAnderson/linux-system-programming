@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    int wfd = open("./fd_test.txt", O_CREAT | O_RDONLY, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    int wfd = open("./fd_test.txt", O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
     int fd_num_1_stdin;
     if (wfd == -1) {
         perror("failed to open wfd ");

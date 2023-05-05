@@ -1,0 +1,8 @@
+HELLO
+File Descriptor world!
+this text will be written in file!
+this text will be written in file!
+this text will be written in file!
+this text will be written in file!
+this text will be written in file!
+this text will be written in file!

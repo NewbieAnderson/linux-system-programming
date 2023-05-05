@@ -2,17 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
 #include <unistd.h>
 
 int main(void)
 {
-    const int flag = O_CREAT | O_RDONLY;
     const mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
-    const int rfd = open("./fd_test.txt", flag, mode);
-    const int wfd = open("./fd_test.txt", flag, mode);
+    const int rfd = open("./fd_test.txt", O_CREAT | O_RDONLY, mode);
+    const int wfd = open("./fd_test.txt", O_WRONLY, mode);
     char read_buf[256] = { 0, };
-    const char *write_string = "HELLO\nFile Descriptor world!";
+    const char *write_string = "Hello\nFile Descriptor world!";
     const int write_string_len = strlen(write_string);
     int byte_counts = 0;
     if (rfd == -1) {
