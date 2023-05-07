@@ -9,6 +9,6 @@ int main(void)
         exit(1);
     }
     if (fclose(fp) == -1)
-        perror("failed to close file pointer ");
+        perror("failed to close file ");
     return 0;
 }
