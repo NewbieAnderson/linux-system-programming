@@ -3,8 +3,8 @@
 
 int main(void)
 {
-    FILE *rfp = fopen("./fp_test.txt", "r");
-    FILE *wfp = fopen("./fp_test.txt", "a");
+    FILE *const rfp = fopen("./fp_test.txt", "r");
+    FILE *const wfp = fopen("./fp_test.txt", "a");
     char buf[256] = { 0, };
     char *addr = NULL;
     int ch = '\0';
@@ -25,6 +25,9 @@ int main(void)
     if (fputs("Hello fputs()!\n", wfp) < 0)
         perror("failed to write in wfp by using fputs() ");
     addr = fgets(buf, 256, rfp);
+    printf("addr : %p\n"
+            "buf : %p\n"
+            "&buf : %p\n", addr, buf, &buf);
     if (addr < 0)
         perror("failed to read by using fgets() ");
     if (fclose(rfp) == -1)

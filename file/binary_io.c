@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef char byte_t;
+typedef unsigned char byte_t;
 
 int main(void)
 {
-    FILE *rbfp = fopen("./fp_bin_test.txt", "rb+");
-    FILE *wbfp = fopen("./fp_bin_test.txt", "ab+");
-    byte_t write_buf[6] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 };
+    FILE *const rbfp = fopen("./fp_bin_test.txt", "rb+");
+    FILE *const wbfp = fopen("./fp_bin_test.txt", "ab+");
+    const byte_t write_buf[6] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 };
     byte_t read_buf[6] = { 0, };
     const int write_data = 0x10090807;
     int read_data = 0;
@@ -39,10 +39,11 @@ int main(void)
     write_count = fread(&read_data, sizeof(int), 1, rbfp);
     if (write_count == EOF)
         perror("failed to read bytes ");
-    printf("0x%02X ", read_data & 0xFF);
-    printf("0x%02X ", (read_data >> 8) & 0xFF);
-    printf("0x%02X ", (read_data >> 16) & 0xFF);
-    printf("0x%02X\n", (read_data >> 24) & 0xFF);
+    printf("0x%02X 0x%02X 0x%02X 0x%02X\n",
+            read_data & 0xFF,
+            (read_data >> 8) & 0xFF,
+            (read_data >> 16) & 0xFF,
+            (read_data >> 24) & 0xFF);
     if (fclose(rbfp) == -1)
         perror("failed to close file ");
     if (fclose(wbfp) == -1)

@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    FILE *fp = fopen("./fp_test.txt", "w");
+    FILE *const fp = fopen("./fp_test.txt", "w");
     if (fp == NULL) {
         perror("failed to open file ");
         exit(1);

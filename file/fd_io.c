@@ -10,7 +10,7 @@ int main(void)
     const int rfd = open("./fd_test.txt", O_CREAT | O_RDONLY, mode);
     const int wfd = open("./fd_test.txt", O_WRONLY, mode);
     char read_buf[256] = { 0, };
-    const char *write_string = "Hello\nFile Descriptor world!";
+    const char *const write_string = "Hello\nFile Descriptor world!";
     const int write_string_len = strlen(write_string);
     int byte_counts = 0;
     if (rfd == -1) {
