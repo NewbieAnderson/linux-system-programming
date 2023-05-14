@@ -12,8 +12,8 @@ struct user_info {
 
 int main(void)
 {
-    FILE *const rfp = fopen("./formatted_io_test.txt", "r");
-    FILE *const wfp = fopen("./formatted_io_test.txt", "a");
+    FILE *const rfp = fopen("./formatted_io_test.csv", "r");
+    FILE *const wfp = fopen("./formatted_io_test.csv", "a");
     struct user_info user = { 0, };
     int i = 0;
     if (rfp == NULL) {
@@ -24,11 +24,15 @@ int main(void)
         perror("failed to open file as write mode ");
         exit(1);
     }
-    printf("%d\n", getchar());
-    while (getchar() != '!') {
-        scanf("input here : %s %s %d", user.id, user.name, &user.age);
-        fprintf("%s %s %d", user.id, user.name, &user.age);
+    printf("input id name age (Ctrl+D is EOF) : ");
+    /* EOF of scanf in linux is 'Ctrl+D' */
+    while (scanf("%s %s %d", user.id, user.name, &user.age) != EOF) {
+        printf("input id name age (Ctrl+D is EOF) : ");
+        fprintf(wfp, "%s, %s, %d\n", user.id, user.name, user.age);
+        fflush(stdin);
+        fflush(wfp);
     }
+    printf("\n");
     while (fscanf(rfp, "%[^,], %[^,], %d\n", user.id, user.name, &user.age) == 3)
         printf("%s, %s, %d\n", user.id, user.name, user.age);
     if (fclose(rfp) == -1)
