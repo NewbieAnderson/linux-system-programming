@@ -24,12 +24,14 @@ int main(void)
         perror("failed to open file as write mode ");
         exit(1);
     }
+    fprintf(stdout, "calling fprintf() with stdout argument!\n");
     printf("input id name age (Ctrl+D is EOF) : ");
     /* EOF of scanf in linux is 'Ctrl+D' */
     while (scanf("%s %s %d", user.id, user.name, &user.age) != EOF) {
         printf("input id name age (Ctrl+D is EOF) : ");
         fprintf(wfp, "%s, %s, %d\n", user.id, user.name, user.age);
-        fflush(stdin);
+        if (fflush(stdin) == -1)
+            printf("failed to fflush stdin ");
         fflush(wfp);
     }
     printf("\n");
