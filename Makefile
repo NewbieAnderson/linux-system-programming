@@ -14,5 +14,5 @@ src/file:
 
 src/error:
 	gcc -o ./bin/error/perror ./error/perror.c
-	gcc -o ./bin/error/strerror ./error/strerror_r.c
+	gcc -o ./bin/error/strerror_r ./error/strerror_r.c
 	gcc -o ./bin/error/strerror ./error/strerror.c
