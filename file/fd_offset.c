@@ -25,7 +25,7 @@ int main(void)
         perror("failed to move rfd's offset ");
     if (lseek(wfd, 0, SEEK_SET) == -1)
         perror("failed to move wfd's offset ");
-    if (write(wfd, "HELLO", 5) == -1)
+    if (write(wfd, "HELLO WORLD", 11) == -1)
         perror("failed to write() ");
     if (read(rfd, read_buf, sizeof(read_buf)) == -1)
         perror("errors occured in reading file ");

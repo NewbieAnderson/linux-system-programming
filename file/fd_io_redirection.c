@@ -11,7 +11,7 @@ int main(void)
         perror("failed to open wfd ");
         exit(1);
     }
-    if (close(1) == -1) {
+    if (close(1) == -1) { /* stdin : 1 */
         perror("failed to close stdin\n");
         exit(1);
     }
@@ -20,6 +20,6 @@ int main(void)
         perror("failed to duplicate file descriptor ");
     if (lseek(fd_num_1_stdin, 0, SEEK_END) == -1)
         perror("failed to move new_fd1's offset ");
-    printf("\nthis text will be written in file!");
+    printf("this text will be written in file!\n");
     return 0;
 }
