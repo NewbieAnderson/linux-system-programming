@@ -5,8 +5,8 @@ typedef unsigned char byte_t;
 
 int main(void)
 {
-    FILE *const rbfp = fopen("./fp_bin_test.txt", "rb+");
-    FILE *const wbfp = fopen("./fp_bin_test.txt", "ab+");
+    FILE *const rbfp = fopen("./binary_io_test.txt", "rb+");
+    FILE *const wbfp = fopen("./binary_io_test.txt", "ab+");
     const byte_t write_buf[6] = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 };
     byte_t read_buf[6] = { 0, };
     const int write_data = 0x10090807;

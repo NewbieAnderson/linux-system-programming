@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    const int wfd = open("./fd_test.txt", O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    const int wfd = open("./fd_io_redirection_test.txt", O_CREAT | O_WRONLY, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
     int fd_num_1_stdin = -1;
     if (wfd == -1) {
         perror("failed to open wfd ");

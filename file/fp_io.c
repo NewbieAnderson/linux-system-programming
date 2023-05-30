@@ -3,8 +3,8 @@
 
 int main(void)
 {
-    FILE *const rfp = fopen("./fp_test.txt", "r");
-    FILE *const wfp = fopen("./fp_test.txt", "a");
+    FILE *const rfp = fopen("./fp_io_test.txt", "r");
+    FILE *const wfp = fopen("./fp_io_test.txt", "a");
     char buf[256] = { 0, };
     char *addr = NULL;
     int ch = '\0';
