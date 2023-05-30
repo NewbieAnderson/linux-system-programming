@@ -1,3 +1,0 @@
-un-buffered___
-line-buffered_
-block-buffered
