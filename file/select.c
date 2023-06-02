@@ -50,7 +50,7 @@ int main(void)
         }
         FD_SET(server_sockets[i], &server_fdset);
     }
-    while (1) {
+    while (alive > 0) {
         fd_set temp_fdset = server_fdset;
         tv.tv_sec = 5;
         tv.tv_usec = 0;
