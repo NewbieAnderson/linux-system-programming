@@ -13,17 +13,17 @@
 
 int main(void)
 {
-	int alive = MAX_SOCKET_SIZE;
+    int server_sockets[MAX_SOCKET_SIZE] = { 0, };
     int client_sockets[MAX_SOCKET_SIZE] = { 0, };
+    int ports[MAX_SOCKET_SIZE] = { 1234, 2345, 3456, 4567, 5678 }; /* test command : telnet 127.0.0.1 1234 */
+    char write_buf[256] = { 0, };
+    struct pollfd poll_fds[MAX_SOCKET_SIZE] = { 0, };
+    struct sockaddr_in server_addr;
     struct sockaddr_in client_addr;
     socklen_t client_addr_len;
-    int i;
-    int ports[MAX_SOCKET_SIZE] = { 1234, 2345, 3456, 4567, 5678 }; /* test command : telnet 127.0.0.1 1234 */
-    struct pollfd poll_fds[MAX_SOCKET_SIZE] = { 0, };
+    int alive = MAX_SOCKET_SIZE;
     int ret;
-    struct sockaddr_in server_addr;
-    int server_sockets[MAX_SOCKET_SIZE] = { 0, };
-    char write_buf[256] = { 0, };
+    int i;
     for (i = 0; i < MAX_SOCKET_SIZE; ++i) {
         server_sockets[i] = socket(PF_INET, SOCK_STREAM, 0);
         if (server_sockets[i] == -1) {
