@@ -53,13 +53,13 @@ int main(void)
         }
         printf("%d sockets are awaken, %d sockets are alive.\n", ret, alive);
         for (i = 0; i < MAX_SOCKET_SIZE; ++i) {
-            if (!(poll_fds[i].revents & POLLIN) || poll_fds[i].fd <= 0 || server_sockets[i] <= 0)
+            if (!(poll_fds[i].revents & POLLIN))
                 continue;
             client_addr_len = sizeof(client_addr);
             client_sockets[i] = accept(server_sockets[i], (struct sockaddr *)&client_addr, &client_addr_len);
             if (client_sockets[i] == -1) {
                 perror("failed to accept socket ");
-                exit(1);
+                break;
             }
             printf("server has been connected!\n"
                 "fd : %d, port : %d\n", server_sockets[i], ports[i]);
