@@ -16,5 +16,6 @@ src/file:
 	gcc -o ./bin/file/fp_io ./file/fp_io.c
 	gcc -o ./bin/file/fp_offset ./file/fp_offset.c
 	gcc -o ./bin/file/fp ./file/fp.c
-	gcc -o ./bin/file/select ./file/select.c
 	gcc -o ./bin/file/poll ./file/poll.c
+	gcc -o ./bin/file/select ./file/select.c
+	gcc -o ./bin/file/vectored_io ./file/vectored_io.c
