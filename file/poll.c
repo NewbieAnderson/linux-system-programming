@@ -44,6 +44,7 @@ int main(void)
         }
         poll_fds[i].fd = server_sockets[i];
         poll_fds[i].events = POLLIN | POLLPRI | POLLOUT;
+        poll_fds[i].revents = 0;
     }
     while (alive > 0) {
         ret = poll(poll_fds, MAX_SOCKET_SIZE, 3000);
