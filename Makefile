@@ -1,4 +1,4 @@
-all: src/error src/file
+all: src/error src/file src/thread
 
 src/error:
 	gcc -o ./bin/error/perror ./error/perror.c
@@ -19,3 +19,9 @@ src/file:
 	gcc -o ./bin/file/poll ./file/poll.c
 	gcc -o ./bin/file/select ./file/select.c
 	gcc -o ./bin/file/vectored_io ./file/vectored_io.c
+
+src/thread:
+	gcc -pthread -o ./bin/thread/bug ./thread/bug.c
+	gcc -pthread -o ./bin/thread/mutex ./thread/mutex.c
+	gcc -pthread -o ./bin/thread/pthread ./thread/pthread.c
+	gcc -pthread -o ./bin/thread/thread_sync ./thread/thread_sync.c
