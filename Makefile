@@ -24,4 +24,4 @@ src/thread:
 	gcc -pthread -o ./bin/thread/bug ./thread/bug.c
 	gcc -pthread -o ./bin/thread/mutex ./thread/mutex.c
 	gcc -pthread -o ./bin/thread/pthread ./thread/pthread.c
-	gcc -pthread -o ./bin/thread/thread_sync ./thread/thread_sync.c
+	gcc -pthread -o ./bin/thread/thread_pool ./thread/thread_pool.c
