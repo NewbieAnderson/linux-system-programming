@@ -26,7 +26,7 @@ void *task_function(void *arg)
         pthread_mutex_lock(mutex_ptr);
         pthread_cond_wait(cond_ptr, mutex_ptr);
         printf("hello i am thread %d!\n", task->thread_num);
-        usleep(1);
+        usleep(1000000);
         task->state = THREAD_STATE_IS_NOT_WOKRING;
         pthread_mutex_unlock(mutex_ptr);
     }
